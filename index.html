@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muse Dash</title>
+    <link rel="icon" type="image/x-icon" href="Images/Muse_Dash_logo.webp">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+        crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+        </script>
+</head>
+
+<style>
+    body {
+        background-image: url('Images/bbg.jpeg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Images/Muse_Dash_logo.webp" alt="Muse Dash Logo" width="150"
+                    class="d-inliMuse_Dash_logo align-top" alt="Your Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight: bold; font-size: large" href="#Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight: bold; font-size: large" href="#Gameplay">Gameplay</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight: bold; font-size: large" href="#Watch">Trailer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight: bold; font-size: large" href="#About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight: bold; font-size: large;" href="#Contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item" style="margin-right: 0.5rem;">
+                        <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                            data-target="#loginModal" id="login_button">
+                            Login
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#signupModal"
+                            id="signup_button">
+                            Sign Up
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-danger" id="logout" style="display: none;">
+                            Sign Out
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Modal for Log-in -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Your login form goes here -->
+                    <form name="login_form" id="login_form" method="post" action="#" enctype="multtiplart/form-data">
+                        <div class="form-group" style="margin: 1rem;">
+                            <label for="email" style="margin: 0.25rem;">Email</label>
+                            <input type="text" class="form-control" id="login_email" name="login_email"
+                                placeholder="Enter username">
+                        </div>
+                        <div class="form-group" style="margin: 1rem;">
+                            <label for="password" style="margin: 0.25rem;">Password</label>
+                            <input type="login_password" class="form-control" id="login_password" name="login_password"
+                                placeholder="Password">
+                            <div id="emailHelp" class="form-text" style="margin: 0.25rem;"> <a href=""> Forgot your
+                                    Password?
+                                </a> </div>
+                        </div>
+                        <div class="d-grid gap-1 " style="margin: 1rem;">
+                            <button type="button" id="login" name="login" class="btn btn-danger">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Your sign up form goes here -->
+                    <form name="registration_form" id="registration_form" method="post" action="#"
+                        enctype="multtiplart/form-data">
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="firstName" style="margin: 0.25rem;">First Name</label>
+                            <input type="text" class="form-control" style="margin: 0.25rem;" id="firstName"
+                                placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="lastName" style="margin: 0.25rem;">Last Name</label>
+                            <input type="text" class="form-control" style="margin: 0.25rem;" id="lastName"
+                                placeholder="Enter your last name">
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="username" style="margin: 0.25rem;">Username</label>
+                            <input type="text" class="form-control" style="margin: 0.25rem;" id="username"
+                                placeholder="Choose a username">
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="email" style="margin: 0.25rem;">Email</label>
+                            <input type="email" class="form-control" style="margin: 0.25rem;" id="email"
+                                placeholder="Enter your email">
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="password" style="margin: 0.25rem;">Password</label>
+                            <input type="password" class="form-control" style="margin: 0.25rem;" id="password"
+                                placeholder="Choose a password">
+                            <div id="emailHelp" class="form-text" style="margin: 0.25rem;">Make sure that it's more than
+                                3 digits at least!
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="birthday" style="margin: 0.25rem;">Birthday</label>
+                            <input type="date" class="form-control" style="margin: 0.25rem;" id="birthday">
+                        </div>
+                        <div class="form-group" style="margin: 0.5rem;">
+                            <label for="gender" style="margin: 0.25rem;">Gender</label>
+                            <select class="form-control" id="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Non-binary">Non-binary</option>
+                            </select>
+                        </div>
+                        <div class="d-grid gap-1 " style="margin: 0.5rem;">
+                            <button type="button" id="register" name="register" class="btn btn-danger"
+                                style="margin: 0.25rem;">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel Open Tag -->
+    <div id="carouselExampleIndicators" class="carousel slide; border border-danger" data-bs-ride="true"
+        style="margin: 20px;">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5">
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="Images/1.png" class="d-block w-100" alt="Muse Dash Splash 1" />
+            </div>
+            <div class="carousel-item">
+                <img src="Images/2.png" class="d-block w-100" alt="Muse Dash Splash  2" />
+            </div>
+            <div class="carousel-item">
+                <img src="Images/3.png" class="d-block w-100" alt="Muse Dash Splash  3" />
+            </div>
+            <div class="carousel-item">
+                <img src="Images/4.png" class="d-block w-100" alt="Muse Dash Splash  4" />
+            </div>
+            <div class="carousel-item active">
+                <img src="Images/5.png" class="d-block w-100" alt="Muse Dash Splash  5" />
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- Carousel End Tag -->
+
+    <style>
+        h2 {
+            text-shadow: 0 0 10px #FF0000, 0 0 10px #ff91de;
+            color: aliceblue;
+        }
+
+        h5 {
+            font-weight: bold;
+            font-size: 30px;
+            color: rgb(255, 15, 215);
+        }
+    </style>
+
+    <!-- Gameplay Open Tag -->
+    <h2 class="text-center pd-5 mb-5 mt-5" id="Gameplay">Trailer</h2>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 1330px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center pd-3 mb-3 mt-3">Muse Dash Steam Trailer!</h5>
+                        <iframe width="1280" height="720"
+                            src="https://www.youtube.com/embed/K_3LiLv8ya4?si=6I53ecnp-myKnZnN"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay=0; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <p class="card-text">
+                            Beat up monsters and keep up the rhythm in Muse Dash!
+                        </p>
+                    </div>
+                    <a href="https://store.steampowered.com/app/774171/Muse_Dash/" class="btn btn-warning"
+                        style="font-size: large; font-weight: bold;">Buy Muse Dash Now!</a>
+
+                </div>
+            </div>
+
+
+
+            <!-- Watch Open Tag -->
+            <h2 class="text-center pd-5 mb-5 mt-5"><class="text-center pd-5 mb-5 mt-5 id="Watch"></class>Watch
+            </h2>
+
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 100%">
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/VkOUazxa58o?si=EOuWJe-r5J1NGbCu"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">"Rubytic - Internet YAMERO All Perfect Gameplay!"</h5>
+                                <p>Watch how an expert does it!<br></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col order">
+
+                        <div class="card" style="width: 100%">
+                            <div class="ratio ratio-16x9">
+                                <iframe width="560" height="315"
+                                    src="https://www.youtube.com/embed/LzwolcIo2Xs?si=wJ0DcSDAkOV87-8E"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">"Hatsune Miku joins Muse Dash!"</h5>
+                                <p>Even Hatsune Miku is here!?<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Watch End Tag -->
+
+
+
+            <!-- About Open Tag -->
+            <h2 class="text-center pd-2 mb-5 mt-5"><class="text-center pd-5 mb-5 mt-5 id="About"></class>About</h2>
+            <div class="container text-center">
+                <div class="card">
+                    <div class="card-header bg-transparent">
+                        <h5>Muse Dash</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Home and fix the world movement tampered with by a mirror image code with
+                            three Muses! <br><b>This is a world of the perfect combination of a cool parkour game and a
+                                traditional music game——Muse Dash!!<br></b> Yes. You’re destined to be our Master! What?
+                            You don’t
+                            have nimble fingers? Meow~ Don’t be too modest!<br> So, don’t worry! If you do not excel in
+                            playing action games, you can still overcome the difficulties by <i>dancing to the
+                                music!</i>
+                            Choose your favorite beauty to go through the romantic backdrop. <br>Now let’s get started
+                            with
+                            our journey to wipe out all the adorkable monsters!!!
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- About End Tag -->
+
+
+
+            <!-- Contact Open Tag -->
+            <h2 class="text-center pd-5 mb-5 mt-5"><class="text-center pd-5 mb-5 mt-5 id="Contact"></class>Contact</h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 100%">
+                            <div class="card-body">
+                                <h5 class="card-title">Xindong Network (PeroPero Games)</h5>
+                            </div>
+                            <div class="ratio ratio-1x1">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3409.862442384828!2d121.43928507633738!3d31.27989997432498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b26e21a4fdb9dd%3A0x99d4db33232bb6c0!2sXindong%20Network!5e0!3m2!1sen!2sph!4v1716846554232!5m2!1sen!2sph"
+                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col order">
+
+                        <div class="card" style="width: 100%">
+                            <h5 class="card-header">Contact Us</h5>
+
+                            <div class="container">
+                                <form><br>
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="name"
+                                            placeholder="Tell us your name!">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email address too!</label>
+                                        <input type="contact_email" class="form-control" id="contact_email"
+                                            placeholder="Enter your email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">What do you wanna tell us?</label>
+                                        <input type="text" class="form-control" id="subject"
+                                            placeholder="Enter subject">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Yap away!</label>
+                                        <textarea class="form-control" id="message" rows="5"
+                                            placeholder="Enter your message"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form><br>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact End Tag -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+                    <symbol id="bootstrap" viewBox="0 0 118 94">
+                        <title>Bootstrap</title>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+                        </path>
+                    </symbol>
+                    <symbol id="perosite" viewBox="0 0 640 512">
+                        <path
+                            d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 168a40 40 0 1 1 0 80 40 40 0 1 1 0-80zM392 304a40 40 0 1 1 80 0 40 40 0 1 1 -80 0zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z" />
+                    </symbol>
+
+                    <symbol id="steam" viewBox="0 0 496 512">
+                        <path
+                            d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.8 52.8 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3 .1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z" />
+                    </symbol>
+
+                    <symbol id="twitter" viewBox="0 0 16 16">
+                        <path
+                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                    </symbol>
+                </svg>
+
+                <!-- Footer Open Tag -->
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 Princess Torin Axibal.</span>
+                    </div>
+
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                        <li class="ms-3"><a class="text-body-secondary" href="https://x.com/MuseDash_EN"><svg
+                                    class="bi" width="24" height="24">
+                                    <use xlink:href="#twitter" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="text-body-secondary"
+                                href="https://store.steampowered.com/app/774171/Muse_Dash/"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#steam" />
+                                </svg></a></li>
+                        <li class="ms-3"><a class="text-body-secondary"
+                                href="https://musedash.peropero.net/"><svg class="bi" width="24" height="24">
+                                    <use xlink:href="#perosite" />
+                                </svg></a></li>
+                    </ul>
+                </footer>
+                <!-- Footer End Tag -->
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";;
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCSbSgBmKrnlUmwIefhRjSjhA1xBBSifJo",
+        authDomain: "musedash-a35c1.firebaseapp.com",
+        projectId: "musedash-a35c1",
+        storageBucket: "musedash-a35c1.appspot.com",
+        messagingSenderId: "662997169253",
+        appId: "1:662997169253:web:d489dc1fed2e5f5c0e028c"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    console.log(app);
+
+    const auth = getAuth();
+
+    document.getElementById("register").addEventListener("click", function () {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        //For new registration
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                alert("Registration successfully!!");
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                console.log(errorMessage);
+                alert(error);
+            });
+    });
+    //----- End
+
+    //----- Login code start	  
+    document.getElementById("login").addEventListener("click", function () {
+        var email = document.getElementById("login_email").value;
+        var password = document.getElementById("login_password").value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                alert(user.email + " Login successfully!!!");
+
+                var element = document.getElementById('logout');
+                element.style.removeProperty("display");
+                document.getElementById('login_button').style.display = 'none';
+                document.getElementById('signup_button').style.display = 'none';
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+    });
+    //----- End
+
+    //----- Logout code start	  
+    document.getElementById("logout").addEventListener("click", function () {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            console.log('Sign-out successful.');
+            alert('Sign-out successful.');
+            document.getElementById('logout').style.display = 'none';
+            document.getElementById('login_button').style.display = 'inline';
+            document.getElementById('signup_button').style.display = 'inline';
+        }).catch((error) => {
+            // An error happened.
+            console.log('An error happened.');
+        });
+    });
+    //----- End
+
+</script>
+
+</html>
